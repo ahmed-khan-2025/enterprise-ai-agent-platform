@@ -1,0 +1,16 @@
+services:
+
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: enterprise-ai-postgres
+    environment:
+      POSTGRES_USER: aiagent
+      POSTGRES_PASSWORD: aiagent
+      POSTGRES_DB: aiagent
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
