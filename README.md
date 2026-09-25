@@ -316,39 +316,6 @@ enterprise-ai-agent-platform/
 ├── docker-compose.yml
 └── README.md
 ```
-
----
-
-# ⚙️ Configuration
-
-Create a `.env` file in the project root.
-
-Example:
-
-```env
-APP_NAME=Enterprise AI Agent Platform
-ENVIRONMENT=development
-
-DATABASE_URL=postgresql+psycopg://aiagent:aiagent@localhost:5433/aiagent
-
-JWT_SECRET_KEY=change-this-secret
-JWT_ALGORITHM=HS256
-ACCESS_TOKEN_EXPIRE_MINUTES=60
-
-LLM_PROVIDER=ollama
-OLLAMA_BASE_URL=http://localhost:11434
-OLLAMA_MODEL=llama3.2
-
-OPENAI_API_KEY=
-
-ORDER_SERVICE_URL=http://localhost:8001
-CUSTOMER_SERVICE_URL=http://localhost:8002
-PAYMENT_SERVICE_URL=http://localhost:8003
-LOGGING_SERVICE_URL=http://localhost:8004
-```
-
-Do not commit real API keys, passwords, or production secrets to GitHub.
-
 ---
 
 # 🐍 Installation
@@ -413,25 +380,25 @@ Each service runs independently.
 ## Order Service
 
 ```powershell
-python -m uvicorn services.order_service.app:app --host 127.0.0.1 --port 8001
+python -m uvicorn services.order-service.app:app --host 127.0.0.1 --port 8001
 ```
 
 ## Customer Service
 
 ```powershell
-python -m uvicorn services.customer_service.app:app --host 127.0.0.1 --port 8002
+python -m uvicorn services.customer-service.app:app --host 127.0.0.1 --port 8002
 ```
 
 ## Payment Service
 
 ```powershell
-python -m uvicorn services.payment_service.app:app --host 127.0.0.1 --port 8003
+python -m uvicorn services.payment-service.app:app --host 127.0.0.1 --port 8003
 ```
 
 ## Logging Service
 
 ```powershell
-python -m uvicorn services.logging_service.app:app --host 127.0.0.1 --port 8004
+python -m uvicorn services.logging-service.app:app --host 127.0.0.1 --port 8004
 ```
 
 Keep the services running while testing the AI agent.
@@ -664,29 +631,6 @@ What caused the order processing failure?
 ```text
 Investigate this customer incident and recommend the next action.
 ```
-
----
-
-# 🚀 Future Extensions
-
-Possible future extensions include:
-
-* Additional enterprise services
-* More specialized AI agents
-* Conditional LangGraph routing
-* Authentication and authorization
-* Persistent investigation history
-* Advanced PostgreSQL integration
-* Observability and tracing
-* Prometheus/Grafana monitoring
-* CI/CD pipelines
-* Kubernetes deployment
-* Human-in-the-loop approval
-* Enterprise audit trails
-* More sophisticated tool selection
-* Production LLM providers
-
-These can be added without changing the fundamental investigation workflow.
 
 ---
 
